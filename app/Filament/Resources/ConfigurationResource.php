@@ -49,8 +49,6 @@ class ConfigurationResource extends Resource
                     MarkdownEditor::make('description'),
                     MarkdownEditor::make('instruction'),
                 ])
-
-
             ]);
     }
 

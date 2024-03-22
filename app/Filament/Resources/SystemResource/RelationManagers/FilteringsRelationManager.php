@@ -10,26 +10,15 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-use App\Models\System;
-
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\BulkAction;
-use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Columns;
-
-class WhitelistsRelationManager extends RelationManager
+class FilteringsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'whitelists';
+    protected static string $relationship = 'filterings';
 
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('whitelist')
+                TextInput::make('filtering')
                 ->unique()
                 ->required()
                 ->maxLength(100),
@@ -43,16 +32,15 @@ class WhitelistsRelationManager extends RelationManager
                     MarkdownEditor::make('description'),
                     MarkdownEditor::make('instruction'),
                 ])
-
             ]);
     }
 
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('whitelist')
+            ->recordTitleAttribute('filtering')
             ->columns([
-                Tables\Columns\TextColumn::make('whitelist')->searchable(),
+                Tables\Columns\TextColumn::make('filtering')->searchable(),
                 Tables\Columns\TextColumn::make('system.system')->searchable(),
             ])
             ->filters([
@@ -66,9 +54,9 @@ class WhitelistsRelationManager extends RelationManager
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                // Tables\Actions\BulkActionGroup::make([
-                //     Tables\Actions\DeleteBulkAction::make(),
-                // ]),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),

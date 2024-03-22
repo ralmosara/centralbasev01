@@ -9,8 +9,5 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Directory extends Model
 {
     use HasFactory;
-    public function system(): BelongsTo
-    {
-        return $this->belongsTo(System::class);
-    }
+
 }

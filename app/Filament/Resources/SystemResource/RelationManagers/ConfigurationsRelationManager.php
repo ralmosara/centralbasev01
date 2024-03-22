@@ -44,15 +44,13 @@ class ConfigurationsRelationManager extends RelationManager
                     MarkdownEditor::make('description'),
                     MarkdownEditor::make('instruction'),
                 ])
-
-
             ]);
     }
 
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('configuration')
+            ->recordTitleAttribute('configurations')
             ->columns([
                 Tables\Columns\TextColumn::make('configuration')->searchable(),
                 Tables\Columns\TextColumn::make('system.system')->searchable(),

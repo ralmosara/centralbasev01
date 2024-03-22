@@ -25,10 +25,6 @@ class System extends Model
         return $this->hasMany(Configuration::class);
     }
 
-    public function directories(): HasMany
-    {
-        return $this->hasMany(Directory::class);
-    }
     public function informations(): HasMany
     {
         return $this->hasMany(Information::class);
@@ -42,5 +38,10 @@ class System extends Model
     public function whitelists(): HasMany
     {
         return $this->hasMany(Whitelist::class);
+    }
+
+    public function filterings(): HasMany
+    {
+        return $this->hasMany(Filtering::class);
     }
 }
