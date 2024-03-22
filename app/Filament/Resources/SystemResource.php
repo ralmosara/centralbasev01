@@ -24,9 +24,10 @@ use Filament\Resources\RelationManagers\RelationGroup;
 class SystemResource extends Resource
 {
     protected static ?string $model = System::class;
-
+    protected static ?int $navigationSort = 1;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+  
     public static function form(Form $form): Form
     {
         return $form
@@ -93,5 +94,7 @@ class SystemResource extends Resource
     {
         return $this->getResource()::getUrl('edit');
     }
+
+
 
 }
