@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TblObject extends Model
 {
     use HasFactory;
+    protected $table = 'tbl_objects';
     public function system(): BelongsTo
     {
         return $this->belongsTo(System::class);
