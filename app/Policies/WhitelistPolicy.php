@@ -13,7 +13,7 @@ class WhitelistPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**
@@ -21,7 +21,7 @@ class WhitelistPolicy
      */
     public function view(User $user, Whitelist $whitelist): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**

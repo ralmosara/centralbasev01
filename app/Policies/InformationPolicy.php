@@ -13,7 +13,7 @@ class InformationPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**
@@ -21,7 +21,7 @@ class InformationPolicy
      */
     public function view(User $user, Information $information): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**

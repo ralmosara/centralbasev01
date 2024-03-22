@@ -13,7 +13,7 @@ class ProcurementPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view-any Procurement');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**
@@ -21,7 +21,7 @@ class ProcurementPolicy
      */
     public function view(User $user, Procurement $procurement): bool
     {
-        return $user->can('view Procurement');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**

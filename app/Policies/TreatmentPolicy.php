@@ -13,7 +13,7 @@ class TreatmentPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
        // return $user->can('view-any Treatment');
     }
 
@@ -22,7 +22,7 @@ class TreatmentPolicy
      */
     public function view(User $user, Treatment $treatment): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
         //return $user->can('view Treatment');
     }
 

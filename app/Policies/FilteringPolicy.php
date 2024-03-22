@@ -13,7 +13,7 @@ class FilteringPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**
@@ -21,7 +21,7 @@ class FilteringPolicy
      */
     public function view(User $user, Filtering $filtering): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**

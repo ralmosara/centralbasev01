@@ -13,7 +13,7 @@ class RulePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**
@@ -21,7 +21,7 @@ class RulePolicy
      */
     public function view(User $user, Rule $rule): bool
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole(['Admin','Viewer']);
     }
 
     /**
