@@ -34,7 +34,7 @@ class System extends Model
         return $this->hasMany(Information::class);
     }
 
-    public function tblobects(): HasMany
+    public function tblobjects(): HasMany
     {
         return $this->hasMany(TblObject::class);
     }

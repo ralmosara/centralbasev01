@@ -74,6 +74,8 @@ class SystemResource extends Resource
            RelationManagers\InformationsRelationManager::class,
            RelationManagers\ConfigurationsRelationManager::class,
            RelationManagers\RulesRelationManager::class,
+           RelationManagers\TblObjectsRelationManager::class,
+           RelationManagers\WhitelistsRelationManager::class,
         ];
     }
 

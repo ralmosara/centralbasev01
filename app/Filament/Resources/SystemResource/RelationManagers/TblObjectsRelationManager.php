@@ -10,7 +10,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
 use App\Models\System;
 
 use Filament\Forms\Components\Grid;
@@ -21,15 +20,16 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Columns;
-class RulesRelationManager extends RelationManager
+class TblObjectsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'rules';
+    protected static string $relationship = 'tblobjects';
+    protected static ?string $title = 'Objects';
 
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('rule')
+                TextInput::make('object')
                 ->unique()
                 ->required()
                 ->maxLength(100),
@@ -50,9 +50,9 @@ class RulesRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('rule')
+            ->recordTitleAttribute('object')
             ->columns([
-                Tables\Columns\TextColumn::make('rule')->searchable(),
+                Tables\Columns\TextColumn::make('object'),
                 Tables\Columns\TextColumn::make('system.system')->searchable(),
             ])
             ->filters([
