@@ -59,7 +59,8 @@ class ObjectResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('object')->searchable(),
+                Tables\Columns\TextColumn::make('system.system')->searchable(),
             ])
             ->filters([
                 //
