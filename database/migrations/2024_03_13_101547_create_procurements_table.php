@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('procurement')->nullable();
             $table->string('reseller')->nullable();
             $table->string('distributor')->nullable();
-            $table->decimal('approved_budget_contract', total: 8, places: 2);
-
-            $table->unsignedInteger('winning_bid_price')->nullable();
+            $table->decimal('approved_budget_contract', total: 18, places: 2);
+            $table->decimal('winning_bid_price', total: 18, places: 2);
             $table->string('status')->nullable();
             $table->unsignedInteger('year')->nullable();
             $table->timestamps();
