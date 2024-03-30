@@ -53,12 +53,17 @@ class ProcurementResource extends Resource
                     ->maxLength(4),
                     TextInput::make('distributor'),
                     TextInput::make('reseller'),
+        
                     TextInput::make('approved_budget_contract')
+                    ->numeric()
                     ->prefix('P')
-                    ->currencyMask(thousandSeparator: ',',decimalSeparator: '.',precision: 2),
+                    ->maxValue(42949672.95)
+                    ->required(),
                     TextInput::make('winning_bid_price')
+                    ->numeric()
                     ->prefix('P')
-                    ->currencyMask(thousandSeparator: ',',decimalSeparator: '.',precision: 2),
+                    ->maxValue(42949672.95)
+                    ->required(),
                   
                 
                 ])
@@ -69,7 +74,10 @@ class ProcurementResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('system.system')->searchable(),
+                Tables\Columns\TextColumn::make('procurement')->searchable(),
+                Tables\Columns\TextColumn::make('approved_budget_contract') ->money('PHP'),
+                Tables\Columns\TextColumn::make('winning_bid_price') ->money('PHP'),
             ])
             ->filters([
                 //
