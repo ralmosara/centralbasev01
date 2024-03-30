@@ -29,7 +29,7 @@ class ProcurementPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create Procurement');
+        return $user->hasRole(['Admin']);
     }
 
     /**
@@ -37,7 +37,7 @@ class ProcurementPolicy
      */
     public function update(User $user, Procurement $procurement): bool
     {
-        return $user->can('update Procurement');
+        return $user->hasRole(['Admin']);
     }
 
     /**
@@ -45,7 +45,7 @@ class ProcurementPolicy
      */
     public function delete(User $user, Procurement $procurement): bool
     {
-        return $user->can('delete Procurement');
+        return $user->hasRole(['Admin']);
     }
 
     /**
@@ -53,7 +53,7 @@ class ProcurementPolicy
      */
     public function restore(User $user, Procurement $procurement): bool
     {
-        return $user->can('restore Procurement');
+        return $user->hasRole(['Admin']);
     }
 
     /**
@@ -61,6 +61,6 @@ class ProcurementPolicy
      */
     public function forceDelete(User $user, Procurement $procurement): bool
     {
-        return $user->can('force-delete Procurement');
+        return $user->hasRole(['Admin']);
     }
 }

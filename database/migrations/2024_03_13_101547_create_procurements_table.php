@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('procurements', function (Blueprint $table) {
             $table->id();
             $table->foreignId('system_id')->constrained('systems')->cascadeOnDelete();
-            $table->longText('description')->nullable();
-            $table->longText('instruction')->nullable();
+            $table->string('procurement')->nullable();
             $table->string('reseller')->nullable();
+            $table->string('distributor')->nullable();
             $table->unsignedInteger('approved_budget_contract')->nullable();
             $table->unsignedInteger('winning_bid_price')->nullable();
             $table->string('status')->nullable();
+            $table->year('year')->nullable();
             $table->timestamps();
         });
     }
