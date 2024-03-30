@@ -46,7 +46,7 @@ class ProcurementResource extends Resource
                 ->schema([
                     TextInput::make('procurement')
                     ->required()
-                    ->maxLength(100),
+                    ->maxLength(300),
                     TextInput::make('year')
                     ->numeric() 
                     ->required()

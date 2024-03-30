@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('approved_budget_contract')->nullable();
             $table->unsignedInteger('winning_bid_price')->nullable();
             $table->string('status')->nullable();
-            $table->year('year')->nullable();
+            $table->unsignedInteger('year')->nullable();
             $table->timestamps();
         });
     }
