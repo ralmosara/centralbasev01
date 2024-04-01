@@ -24,6 +24,7 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Columns;
+use Filament\Support\RawJs;
 
 
 class ProcurementResource extends Resource
@@ -55,10 +56,14 @@ class ProcurementResource extends Resource
                     TextInput::make('reseller'),
         
                     TextInput::make('approved_budget_contract')
+                    ->mask(RawJs::make('$money($input)'))
+                    ->stripCharacters(',')
                     ->numeric()
                     ->prefix('P')
-                    ->maxValue(42949672.95)
+                   
                     ->required(),
+
+
                     TextInput::make('winning_bid_price')
                     ->numeric()
                     ->prefix('P')
