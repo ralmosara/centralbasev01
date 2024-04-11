@@ -60,11 +60,11 @@ class ProcurementResource extends Resource
                     ->stripCharacters(',')
                     ->numeric()
                     ->prefix('P')
-                   
                     ->required(),
 
-
                     TextInput::make('winning_bid_price')
+                    ->mask(RawJs::make('$money($input)'))
+                    ->stripCharacters(',')
                     ->numeric()
                     ->prefix('P')
                     ->maxValue(42949672.95)
