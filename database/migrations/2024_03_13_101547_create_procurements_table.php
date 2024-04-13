@@ -20,6 +20,8 @@ return new class extends Migration
             $table->decimal('approved_budget_contract', total: 18, places: 2);
             $table->decimal('winning_bid_price', total: 18, places: 2);
             $table->string('status')->nullable();
+            $table->string('attachments')->nullable();
+            
             $table->unsignedInteger('year')->nullable();
             $table->timestamps();
         });

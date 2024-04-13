@@ -20,6 +20,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -42,6 +43,13 @@ class ProcurementResource extends Resource
                 ->required()
                 ->options(System::all()->pluck('system', 'id'))
                 ->searchable(),
+
+                FileUpload::make('attachments')
+                ->multiple()
+                ->reorderable()
+                ->appendFiles()
+                ->preserveFilenames()
+                ->downloadable(),
 
                 Grid::make(2)
                 ->schema([
