@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Facades\Filament;
+use Filament\Pages\Page;
+use App\Filament\Pages\Login;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::unguard();
+    
     }
 }

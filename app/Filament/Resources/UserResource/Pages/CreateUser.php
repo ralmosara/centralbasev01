@@ -14,4 +14,11 @@ class CreateUser extends CreateRecord
     {
         return 'User registered';
     }
+    protected function afterCreate(): void
+    {
+        activity()
+            ->causedBy(auth()->user())
+            ->performedOn($this->record)
+            ->log('Created new user');
+    }
 }

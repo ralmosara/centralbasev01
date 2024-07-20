@@ -27,7 +27,8 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+           // ->login()
+            ->login(\App\Filament\Pages\Login::class)
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -57,7 +58,12 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugin(
                 FilamentSpatieRolesPermissionsPlugin::make()
-            );
+            )
+
+            ->colors([
+                'primary' => Color::Blue, 
+            ]);
 
     }
 }
+

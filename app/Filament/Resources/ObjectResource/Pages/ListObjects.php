@@ -16,4 +16,12 @@ class ListObjects extends ListRecords
             Actions\CreateAction::make()->label('New Object'),
         ];
     }
+    public function mount(): void
+    {
+        parent::mount();
+
+        activity()
+            ->causedBy(auth()->user())
+            ->log('Viewed list of objects');
+    }
 }
